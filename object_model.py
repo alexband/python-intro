@@ -34,6 +34,10 @@ if __name__ == '__main__':
     #import pdb
     #pdb.set_trace()
 
+    class C2(object): pass
+    class C3(C1): pass
+    class C4(C2, C1): pass
+
     def function1():
         print ">>> C1.__dict__['f1']"
         print C1.__dict__['f1']
@@ -66,7 +70,6 @@ if __name__ == '__main__':
         print ">>> class C2(object): pass"
         print ">>> c2 = C2()"
         c1 = C1()
-        class C2(object): pass
         c2 = C2()
         print ">>> C1.__dict__['f1'](c1)"
         print C1.__dict__['f1'](c1)
@@ -80,7 +83,6 @@ if __name__ == '__main__':
 
     def function4():
         print ">>> class C3(C1): pass"
-        class C3(C1): pass
         print ">>> C3.a"
         print C3.a
 
@@ -94,3 +96,19 @@ if __name__ == '__main__':
         print C3.__bases__
         print ">>> C3.__bases__[0].a"
         print C3.__bases__[0].a
+
+    def function5():
+        print ">>> class C4(C2, C1): pass"
+        print ">>> C4.a"
+        print C4.a
+        print ">>> C4.__bases__"
+        print C4.__bases__
+        print ">>> C4.__bases__[0].a"
+        try:
+            print C4.__bases__[0].a
+        except:
+            traceback.print_exc()
+        print ">>> C4.__bases__[1].a"
+        print C4.__bases__[1].a
+
+
