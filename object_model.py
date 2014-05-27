@@ -111,4 +111,26 @@ if __name__ == '__main__':
         print ">>> C4.__bases__[1].a"
         print C4.__bases__[1].a
 
+    def function6():
+        print ">>> c1 = C1()"
+        print ">>> c1.b = 'b'"
+        c1 = C1()
+        c1.b = 'b'
+        print ">>> c1.__dict__['b']"
+        print c1.__dict__['b']
+        print ">>> c1.a"
+        print c1.a
+        print ">>> c1.__dict__['a']"
+        try:
+            print c1.__dict__['a']
+        except:
+            traceback.print_exc()
+        print ">>> C1.__dict__['a']"
+        print C1.__dict__['a']
+        print ">>> c1.__class__"
+        print c1.__class__
+        print ">>> c1.__class__.a"
+        print c1.__class__.a
+        
+
 
